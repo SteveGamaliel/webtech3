@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Finance Bridge Application</title>
+</head>
+<body>
+<center>
+
+<div id="choiceForm">
+<fieldset style="border:2px solid blue;width:350px;">
+<h2>Finance Bridge</h2>
+<p>Are you an existing user?</p>
+<input type="button" value="Login" onclick="showLogin()">
+<input type="button" value="Sign Up" onclick="showSignup()">
+</fieldset>
+</div>
+
+<div id="loginForm" style="display:none;">
+<form onsubmit="showFinanceDetails();return false;">
+<fieldset style="border:2px solid blue;width:350px;">
+<h2>Login Form</h2>
+<table border="0" cellpadding="5">
+<tr>
+<td>Username:</td>
+<td><input type="text" name="username" required></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="password" required></td>
+</tr>
+</table>
+<br>
+<input type="submit" value="Login">
+<input type="reset" value="Clear">
+</fieldset>
+</form>
+</div>
+
+<div id="signupForm" style="display:none;">
+<form onsubmit="showFinanceDetails();return false;">
+<fieldset style="border:2px solid green;width:350px;">
+<h2>Sign Up Form</h2>
+<table border="0" cellpadding="5">
+<tr>
+<td>First Name:</td>
+<td><input type="text" name="first_name" required></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><input type="text" name="last_name"></td>
+</tr>
+<tr>
+<td>Username:</td>
+<td><input type="text" name="username" required></td>
+</tr>
+<tr>
+<td>Email:</td>
+<td><input type="email" name="email" required></td>
+</tr>
+<tr>
+<td>Phone:</td>
+<td><input type="tel" name="phone"></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="password" required></td>
+</tr>
+<tr>
+<td>Confirm Password:</td>
+<td><input type="password" name="confirm_password" required></td>
+</tr>
+</table>
+<br>
+<input type="submit" value="Sign Up">
+<input type="reset" value="Clear">
+</fieldset>
+</form>
+</div>
+
+<div id="financeDetails" style="display:none;">
+<form onsubmit="showReservation();return false;">
+<fieldset style="border:2px solid purple;width:350px;">
+<h2>Finance Details</h2>
+<table border="0" cellpadding="5">
+<tr>
+<td>Service Required:</td>
+<td>
+<select name="service" required>
+<option value="">Select Service</option>
+<option>Financial Planning</option>
+<option>Investment Advisory</option>
+<option>Retirement Planning</option>
+<option>Tax Planning</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Investment Goal:</td>
+<td>
+<select name="goal" required>
+<option value="">Select Goal</option>
+<option>Wealth Creation</option>
+<option>Saving for Education</option>
+<option>Retirement</option>
+<option>Future Planning</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Preferred Branch:</td>
+<td>
+<select name="branch" required>
+<option value="">Select Branch</option>
+<option>Coimbatore</option>
+<option>Chennai</option>
+<option>Bangalore</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Appointment Date:</td>
+<td><input type="date" name="appointment_date" required></td>
+</tr>
+<tr>
+<td>Appointment Type:</td>
+<td>
+<input type="radio" name="appointment" value="Online" required> Online
+<input type="radio" name="appointment" value="In-Person"> In-Person
+</td>
+</tr>
+</table>
+<br>
+<input type="submit" value="Next">
+<input type="reset" value="Clear">
+</fieldset>
+</form>
+</div>
+
+<div id="reservationForm" style="display:none;">
+<form action="home.php" method="post">
+<fieldset style="border:2px solid red;width:350px;">
+<h2>Reservations Form</h2>
+<table border="0" cellpadding="2">
+<tr>
+<td>First Name:</td>
+<td><input type="text" name="first_name" required></td>
+</tr>
+<tr>
+<td>Last Name:</td>
+<td><input type="text" name="last_name"></td>
+</tr>
+<tr>
+<td colspan="2"><strong>Address</strong></td>
+</tr>
+<tr>
+<td>Number &amp; Street:</td>
+<td><input type="text" name="street"></td>
+</tr>
+<tr>
+<td>City:</td>
+<td><input type="text" name="city"></td>
+</tr>
+<tr>
+<td>State:</td>
+<td><input type="text" name="state"></td>
+</tr>
+<tr>
+<td>Zip Code:</td>
+<td><input type="text" name="zip"></td>
+</tr>
+<tr>
+<td>Phone:</td>
+<td><input type="tel" name="phone" placeholder="(###) ###-####"></td>
+</tr>
+<tr>
+<td>E-mail Address:</td>
+<td><input type="email" name="email" placeholder="name@domain.com"></td>
+</tr>
+<tr>
+<td>Payment Method:</td>
+<td><input type="text" name="payment_method"></td>
+</tr>
+<tr>
+<td>Card Number:</td>
+<td><input type="text" name="card_number"></td>
+</tr>
+<tr>
+<td><strong>Special Requests:</strong></td>
+<td><textarea name="special_requests" rows="4" cols="20" placeholder="Enter your request here"></textarea></td>
+</tr>
+</table>
+<br>
+<input type="submit" value="Submit">
+<input type="reset" value="Clear">
+</fieldset>
+</form>
+</div>
+
+<script>
+function showLogin() {
+document.getElementById("choiceForm").style.display="none";
+document.getElementById("loginForm").style.display="block";
+}
+function showSignup() {
+document.getElementById("choiceForm").style.display="none";
+document.getElementById("signupForm").style.display="block";
+}
+function showFinanceDetails() {
+document.getElementById("loginForm").style.display="none";
+document.getElementById("signupForm").style.display="none";
+document.getElementById("financeDetails").style.display="block";
+}
+function showReservation() {
+document.getElementById("financeDetails").style.display="none";
+document.getElementById("reservationForm").style.display="block";
+}
+</script>
+
+</center>
+</body>
+</html>
